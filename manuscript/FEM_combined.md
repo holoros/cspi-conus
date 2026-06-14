@@ -517,7 +517,7 @@ This work was supported by the USDA National Institute of Food and Agriculture, 
 
 ## 7. Data and code availability
 
-CSPI v2.0.0 is at 10.5281/zenodo.20663652 (concept 10.5281/zenodo.20515034), CC-BY-4.0. The release contains the recommended 1 km ESI v6 surface, MOD17A3HGF NPP at 500 m, and documentation; the full 30 m surfaces follow in v2.1.0. The SICOND-target v3 and v4 surfaces from v1.0.0 (10.5281/zenodo.20515035) remain available. Pipeline at https://github.com/holoros/fvs-conus.
+CSPI v2.0.0 is at 10.5281/zenodo.20663652 (concept 10.5281/zenodo.20515034), CC-BY-4.0. The release contains the recommended 1 km ESI v6 surface, MOD17A3HGF NPP at 500 m, and documentation; the full 30 m surfaces follow in v2.1.0. The SICOND-target v3 and v4 surfaces from v1.0.0 (10.5281/zenodo.20515035) remain available. Pipeline at https://github.com/holoros/cspi-conus. Analytical chain archive at https://doi.org/10.5281/zenodo.20693106.
 
 ## References
 

@@ -1,5 +1,10 @@
 # CSPI release history
 
+## v0.10g+ analytical chain published (14 June 2026)
+
+The v0.10g+ analytical chain (manuscript drafts, intermediate result tables, pipeline scripts, outreach materials, and documentation) is now archived at Zenodo as a companion to the data deposit. Concept DOI: 10.5281/zenodo.20693106. The data product remains at concept DOI 10.5281/zenodo.20515034.
+
+
 Concept DOI: 10.5281/zenodo.20515034 (always points at the latest version).
 
 ## Manuscript correction (v0.10b) — 14 June 2026
