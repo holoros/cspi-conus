@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "title": "Composite Site Productivity Index (CSPI) analytical chain v1.0.0 for the conterminous United States",
+    "upload_type": "publication",
+    "publication_type": "preprint",
+    "publication_date": "2026-06-14",
+    "creators": [
+      {
+        "name": "Weiskittel, Aaron R.",
+        "affiliation": "University of Maine, Center for Research on Sustainable Forests",
+        "orcid": "0000-0003-2534-4478"
+      }
+    ],
+    "description": "<p>Companion analytical chain deposit for the <strong>Composite Site Productivity Index (CSPI)</strong> data release at Zenodo concept DOI 10.5281/zenodo.20515034. This deposit contains the manuscript drafts, intermediate result tables, pipeline scripts, outreach materials, and documentation supporting the v0.10g manuscript &quot;Beyond site index: FIA's own classification system disagrees with site index but agrees with a multi-dimensional composite of forest productivity at 30 m across the conterminous United States&quot; (in revision at Forest Ecology and Management).</p><p><strong>Key empirical findings:</strong></p><ul><li>FIA's seven-class site productivity classification (SITECLCD) tracks biomass growth (BGI alone OOB R² = 0.808) more closely than site index (ESI alone OOB R² = 0.751).</li><li>Three independent traditional site index measurements (raw FIA SICOND, NRCS SSURGO coforprod, Cieszewski-Bailey GADA refit) all carry moderate biomass-growth structure; the raw SICOND × ESI = -0.08 correlation is a base-age Simpson paradox.</li><li>A hierarchical EPA Level I/II/III ecoregion-weighted composite paired with the equal-weight composite increases SITECLCD recovery from OOB R² = 0.812 to 0.832 (+0.020, 95% CI non-overlapping).</li></ul><p>Includes <em>multidim_v3</em>, <em>v4</em>, <em>v5_L3</em>, <em>v5_ML</em>, and <em>v5_ML2</em> result CSVs, the corresponding R and Python pipeline scripts, the v0.10g manuscript draft plus the FEM combined submission docx (4 MB with 11 figures), four-document outreach package, and stress test plus reorganization documentation. Source repository at <a href=\"https://github.com/holoros/cspi-conus\">holoros/cspi-conus</a>.</p>",
+    "keywords": [
+      "forest productivity",
+      "site index",
+      "composite index",
+      "FIA",
+      "SITECLCD",
+      "biomass growth",
+      "ecoregion",
+      "random forest",
+      "Cardinal",
+      "CONUS",
+      "Composite Site Productivity Index",
+      "CSPI"
+    ],
+    "license": "cc-by-4.0",
+    "version": "1.0.0",
+    "access_right": "open",
+    "language": "eng",
+    "communities": [
+      { "identifier": "forestry" }
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "10.5281/zenodo.20515034",
+        "relation": "isPartOf",
+        "scheme": "doi",
+        "resource_type": "dataset"
+      },
+      {
+        "identifier": "https://github.com/holoros/cspi-conus",
+        "relation": "isSupplementTo",
+        "scheme": "url",
+        "resource_type": "software"
+      }
+    ]
+  }
+}
