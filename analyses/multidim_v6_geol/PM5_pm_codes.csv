@@ -1,0 +1,11 @@
+pm_category,pm_int
+Residuum,1
+Alluvial,2
+Marine,3
+Glacial,4
+Colluvium,5
+Eolian,6
+Other,7
+Organic,8
+Volcanic,9
+Lacustrine,10
