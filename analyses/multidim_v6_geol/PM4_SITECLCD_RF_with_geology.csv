@@ -1,0 +1,4 @@
+model,OOB_R2,OOB_RMSE,n
+c3_equal alone,0.8003,0.441,60234
+pm_category alone,0.1535,0.908,60234
+c3_equal + pm_category,0.4016,0.763,60234

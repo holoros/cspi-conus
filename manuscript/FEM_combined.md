@@ -459,6 +459,46 @@ Figure 11 provides a decision tree for choosing among ESI, BGI, Asym, NPP, and C
 
 The decision tree also lists the three most common failure modes of single-metric studies, drawn directly from the analyses in this paper. ESI alone misses the FIA SITECLCD ranking (mean ESI essentially flat 30.6 → 29.6 m across the seven classes). ESI alone misses the stand-age sign flip (ESI–BGI goes from −0.57 in middle-age stands to +0.33 in old growth). ESI alone misses species heterogeneity (the ESI–BGI correlation ranges from 0.028 in yellow-poplar to 0.492 in Douglas-fir; a single national ranking implicitly assumes one relationship across all species). Researchers selecting a productivity measure should at minimum verify that their application is robust to these three known failure modes; if not, the multi-dimensional composite or a per-component decomposition is the recommended path.
 
+### 3.14 Geologic parent material adds a fourth stratification axis
+
+The multi-dimensional pattern documented above (per-species, per-region, per-stand-age) also holds across geologic parent material categories. We pulled gSSURGO `copmgrp.pmgroupname` at the FIA plot mukeys via the SDA web service and categorized the dominant component into ten broad parent material groups (Table 7).
+
+**Table 7.** Mean productivity measures and ESI-BGI correlation by gSSURGO parent material category, dominant component per mukey. n = 110,494 plots with a parent material assigned.
+
+| Parent material | n | Mean ESI (m) | Mean BGI (Mg ha⁻¹ yr⁻¹) | Mean Asym | Mean NPP | r(ESI, BGI) |
+|---|---|---|---|---|---|---|
+| Residuum | 35,500 | 28.1 | 1.67 | 250.9 | 452 | −0.578 |
+| Marine | 24,821 | 24.1 | **2.17** | 233.6 | 505 | +0.026 |
+| Alluvial | 20,622 | 28.5 | 1.63 | 245.6 | 489 | −0.509 |
+| Glacial | 10,136 | 31.2 | 1.27 | 257.8 | 334 | −0.405 |
+| Colluvium | 8,887 | 31.8 | 1.29 | 252.2 | 384 | −0.546 |
+| Eolian | 4,348 | 30.5 | 1.77 | 240.8 | 421 | −0.614 |
+| Other | 4,117 | 26.7 | 1.86 | 249.8 | 393 | −0.487 |
+| **Organic** | 1,130 | **19.2** | 2.04 | 246.2 | 313 | **+0.599** |
+| **Volcanic** | 494 | **39.9** | 1.09 | 254.9 | 486 | **+0.582** |
+| Lacustrine | 439 | 26.7 | 1.60 | 258.5 | 236 | −0.153 |
+
+Two findings emerge that strengthen the multi-dimensional argument. First, volcanic soils have the highest mean ESI (39.9 m) but the lowest mean SITECLCD productivity ranking (Table 7a, mean SITECLCD 5.69 of 7). Conversely, organic soils have the lowest mean ESI (19.2 m) but show high BGI (2.04 Mg ha⁻¹ yr⁻¹). The two measures disagree in opposite directions on the two parent material categories where the mismatch is most extreme. Second, the ESI–BGI correlation sign-flip we documented by stand age and species also appears by geology: organic (r = +0.60) and volcanic (r = +0.58) show strongly positive ESI–BGI correlations, while most other categories show negative correlations (−0.41 to −0.61). The "ecological regime" axis we identified in §3.4 generalizes to a "geological regime" axis with the same structural consequence: pooling across parent material categories in a single national productivity surface absorbs the sign-flip into the residuals.
+
+**Table 7a.** Mean FIA SITECLCD class by parent material. SITECLCD = 1 is most productive, 7 is least productive.
+
+| Parent material | n | Mean SITECLCD |
+|---|---|---|
+| Marine | 11,508 | **4.48** |
+| Lacustrine | 230 | 4.92 |
+| Eolian | 2,314 | 4.93 |
+| Organic | 782 | 5.12 |
+| Alluvial | 12,510 | 5.26 |
+| Other | 2,028 | 5.27 |
+| Residuum | 17,354 | 5.37 |
+| Glacial | 6,630 | 5.56 |
+| Colluvium | 6,640 | 5.66 |
+| **Volcanic** | 238 | **5.69** |
+
+Marine and Eolian soils receive the most productive SITECLCD ratings; Volcanic and Colluvium receive the least. Combined with Table 7, the volcanic soils contrast becomes clear: high site index for the trees that grow there (tall dominant heights), but low biomass accumulation rate, low FIA productivity rating. This is exactly the multi-dimensional pattern: ESI captures one productivity dimension, BGI and SITECLCD capture another, and the two answers diverge on the geology where the mismatch is structural rather than random.
+
+The geologic stratification is consistent with the broader argument and motivates a v3.0.0 follow-on where geologic parent material enters as an explicit ESI v9 predictor stack covariate alongside the existing soil, terrain, canopy, and microclimate stack.
+
 ### 4.7 What is robust to the SICOND correction
 
 A reviewer-style robustness test at the manuscript revision stage revealed that the v0.9 framing of the SICOND-vs-ESI orthogonality result was overstated due to a Simpson's paradox in the SIBASE strata (§3.5, Table 2a). We log the finding transparently because it is methodologically informative: the corrected reading is materially different from the raw reading, but the principal claims of the paper survive intact. Specifically, the following findings are independent of the SICOND base-age and equation-family issues:
