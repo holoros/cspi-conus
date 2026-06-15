@@ -138,7 +138,7 @@ add_text(s, 0.8, 5.95, 12.0, 0.4,
          "Collaborators briefing | 13 June 2026 | CSPI v2.0.0 release",
          size=14, color=CRSF_LIGHT)
 add_text(s, 0.8, 6.85, 12.0, 0.4,
-         "Concept DOI 10.5281/zenodo.20515034 | Version 2.0.0 DOI 10.5281/zenodo.20663652",
+         "Data concept 10.5281/zenodo.20515034 | Analytical chain 10.5281/zenodo.20693106 | v2.0.0 10.5281/zenodo.20663652",
          size=12, color=CRSF_LIGHT)
 
 # ----------------------------------------------------------------------------
@@ -236,10 +236,10 @@ add_band(s, "If site index were what FIA SITECLCD measures, the ESI line would t
 # ----------------------------------------------------------------------------
 s = blank()
 add_logo(s)
-add_text(s, 1.7, 0.4, 11.0, 0.7, "Three SI measurement chains, one consistent picture",
+add_text(s, 1.7, 0.4, 11.0, 0.7, "Hierarchical ecoregion weighting boosts SITECLCD recovery",
          size=32, bold=True, color=CRSF_GREEN, font="Aptos Display")
 add_text(s, 1.7, 1.15, 11.0, 0.5,
-         "GADA-refit SI tracks ESI v7 at r = +0.66 (strongest pairing); SSURGO + raw SICOND tell same story.",
+         "Equal-weight + ecoregion composite reaches R² = 0.832 vs 0.812 alone (CI non-overlapping).",
          size=15, color=MED_GRAY)
 
 # Two callout numbers
@@ -251,13 +251,13 @@ def callout_pair(x, y, val, line1, line2, color):
     add_text(s, x, y+1.7, 4.0, 0.5, line2, size=13, color=MED_GRAY,
              align=PP_ALIGN.CENTER)
 
-callout_pair(1.5, 2.0, "r = +0.66", "GADA × ESI v7",
-             "Strongest SI-vs-SI pairing in the matrix", COLOR_BGI)
-callout_pair(8.0, 2.0, "r = +0.43", "GADA × BGI",
-             "All three SI chains correlate with BGI at similar 0.37-0.43", COLOR_ESI)
+callout_pair(1.5, 2.0, "R² 0.832", "equal + hier composite",
+             "Bootstrap 95% CI [0.829, 0.835]; +0.020 over equal alone", COLOR_BGI)
+callout_pair(8.0, 2.0, "50 L3", "EPA Level III ecoregions",
+             "Mean w_ESI=1.77, w_BGI=0.21, w_Asym=0.34 across regions", COLOR_ESI)
 
 add_text(s, 1.5, 4.5, 10.3, 0.55,
-         "When fit properly, site index measures height-growth potential, not biomass growth.",
+         "Per-region PC1 captures 48% to 84% of variance; Western ESI-dominated, Eastern Asym-dominated.",
          size=17, color=CHARCOAL, bold=True)
 add_text(s, 1.5, 5.15, 10.3, 1.35,
          "When you swap SICOND for the unified-target ESI in growth-and-yield work, expect the calibrations to shift. "
@@ -265,7 +265,7 @@ add_text(s, 1.5, 5.15, 10.3, 1.35,
          "Whether that shift is desirable depends on your application.",
          size=15, color=CHARCOAL)
 
-add_band(s, "SITECLCD finding is independent of SI base-age and survives all corrections. GADA-refit SI tracks ESI strongly.")
+add_band(s, "Multilevel ecoregion: +0.020 R² gain (CI non-overlapping); SITECLCD result remains the headline anchor.")
 
 # ----------------------------------------------------------------------------
 # Slide 6: Stand-age sign flip with F9
