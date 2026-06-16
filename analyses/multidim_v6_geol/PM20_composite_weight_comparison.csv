@@ -1,0 +1,5 @@
+model,OOB_R2,OOB_RMSE,n
+1. Equal-weight composite (baseline §3.6),0.8003,0.441,60234
+"2. Free 3-component, no PM",0.8167,0.423,60234
+3. 3-component + pm_factor (additive),0.817,0.422,60234
+4. Per-PM stratified (n-weighted avg),0.7743,0.418,60234
