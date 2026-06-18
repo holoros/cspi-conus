@@ -1,0 +1,4 @@
+stratification,range_r_esi_bgi,n_categories
+DSTRBCD1 alone (S1_DSTRBCD1),0.96,10
+EPA L3 alone (multidim_v5_L3 M3L3),,
+DSTRBCD1 x L3 joint (this run),1.402,115
