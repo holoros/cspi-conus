@@ -20,16 +20,21 @@ The delta layer (ASYM_DELTA_v9_v7_CONUS_30m.tif) is partially written and orphan
 
 When 11786566 lands, 11786731 will auto-fire. It runs `upload_to_zenodo.py` against the staged metadata and creates a DRAFT deposit (no `--publish` flag). You can then verify via the Zenodo web UI and click publish manually.
 
-## What's in the v3.0.0 deposit
+## What's in the v3.0.0 deposit (Zenodo draft 20763197)
 
-| File | Where on Cardinal | Size |
-|---|---|---|
-| ASYM_V9_CONUS_30m_fmasked.tif (in flight) | `/users/PUOM0008/crsfaaron/raster_layers/asym_v9/` | ~6 GB est |
-| parent_material_30m_CONUS_4326.tif | `/fs/scratch/PUOM0008/crsfaaron/cspi_v7/multidim_v6_geol/` | 294 MB |
-| m_asym_v9_v3stack.rds | `/fs/scratch/PUOM0008/crsfaaron/cspi_v7/multidim_v6_geol/` | 83 MB |
-| NEWS_v3.0.0.md | `/fs/scratch/PUOM0008/crsfaaron/zenodo_staging/cspi-v3/` | ~5 KB |
+Draft URL: https://zenodo.org/deposit/20763197
 
-Metadata: `/fs/scratch/PUOM0008/crsfaaron/zenodo_staging/cspi-v3/metadata.json`. Upload script: same dir, `upload_to_zenodo.py`. Files list: same dir, `files_to_upload.txt`. Slurm wrapper: same dir, `fire_upload.slurm`.
+| File | Where on Cardinal | Size | Use |
+|---|---|---|---|
+| ASYM_V9_CONUS_30m_fm.tif | `/users/PUOM0008/crsfaaron/raster_layers/asym_v9/` | 6.7 GB | Forest-masked headline product (Hansen tree cover 2000 ≥ 30%) |
+| ASYM_V9_CONUS_30m.tif | `/users/PUOM0008/crsfaaron/raster_layers/asym_v9/` | 13 GB | Unmasked full CONUS, for **reforestation planning** (non-forest pixels carry model-predicted potential carrying capacity) |
+| parent_material_30m_CONUS_4326.tif | `/fs/scratch/PUOM0008/crsfaaron/cspi_v7/multidim_v6_geol/` | 294 MB | gSSURGO 10-class parent material overlay |
+| m_asym_v9_v3stack.rds | `/fs/scratch/PUOM0008/crsfaaron/cspi_v7/multidim_v6_geol/` | 83 MB | Trained ranger model object for reproducibility |
+| NEWS_v3.0.0.md | `/fs/scratch/PUOM0008/crsfaaron/zenodo_staging/cspi-v3/` | ~5 KB | Release notes |
+
+Two upload jobs:
+- 11787010 (current): uploading ASYM_V9_CONUS_30m_fm.tif + parent material + model + NEWS to deposit 20763197
+- 11787174 (dependency-queued afterok:11787010): adds ASYM_V9_CONUS_30m.tif (the unmasked 13 GB file for reforestation use)
 
 ## Remaining tasks for FEM submission
 
