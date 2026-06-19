@@ -11,22 +11,18 @@ The v3.0.0 surface release is most of the way there. The ASYM_V9_CONUS_30m.tif h
 
 ## What's in flight on Cardinal
 
-Job **11741898** (`asym_gdal`). Streaming GDAL pipeline that produces three derived layers from the ASYM_V9_CONUS_30m.tif mosaic:
+Job **11786104** (`asym_fm`). Streams the forest mask onto ASYM_V9_CONUS_30m.tif using terra::lapp block-level streaming with the v7 forest CSPI raster as the mask source. Output: `ASYM_V9_CONUS_30m_forestmasked.tif`. Expected ~60 minutes total wall time from job start; rate is approximately 150 MB/min on the compressed output.
 
-1. `asym_v7_resampled_30m.tif` (37.6 GB, already done) — v7 Asym 1km bilinearly warped to the v9 30m grid.
-2. `ASYM_DELTA_v9_v7_CONUS_30m.tif` (in progress) — Float32 pixelwise v9 minus v7.
-3. `ASYM_V9_CONUS_30m_forestmasked.tif` — v9 masked to the v7 forest CSPI footprint.
-4. `ASYM_DELTA_v9_v7_CONUS_30m_forestmasked.tif` — delta layer masked to forest.
+The original combined R/terra job (11741898) and a streaming GDAL alternative (11741898 → asym_terra 11784891) ran into two distinct issues. The R/terra job 11741898 OOM'd at 128 GB attempting to materialize the full v7-resampled raster. The streaming GDAL alternative (`gdal_calc.py`) is not in PATH on the Cardinal gdal/3.7.3 module. The R/terra streaming alternative 11784891 worked for step 1 (delta layer) but conflicted with the parallel fm-only job on file write, so the terra job was cancelled. The cleanest path forward is the parallel `asym_fm` job currently running.
 
-Expected completion: within the next 1 to 2 hours from job start. Resource: 64 GB / 8 cpu / 6 hr wall. Once these land the v3.0.0 release package is ready to fire.
+The delta layer (ASYM_DELTA_v9_v7_CONUS_30m.tif) is partially written (~7 GB of ~13 GB expected) on disk but was orphaned when the terra job cancelled. It can be deleted (user must do this; deletions on Cardinal are prohibited from this session) or used as a partial start point for a clean delta rebuild in the next session.
 
 ## v3.0.0 release direction (clear, no decision needed)
 
-Ship three new products alongside the v2.0.0 baseline:
+Ship two new products alongside the v2.0.0 baseline. The delta layer is now deferred to v3.0.1.
 
 1. `ASYM_V9_CONUS_30m_forestmasked.tif` — the headline corrective surface for asymptotic biomass. OOB R² = 0.836 vs v7 baseline 0.828, ΔR² = +0.0078, RMSE 8.40 → 8.21 Mg/ha. PM is the substantive driver.
-2. `ASYM_DELTA_v9_v7_CONUS_30m_forestmasked.tif` — pixelwise difference layer for users who want to see where geology reorganizes Asym predictions.
-3. `parent_material_30m_CONUS_4326.tif` (already built, 307 MB) — gSSURGO-derived 10-class parent material raster as a separately citable overlay.
+2. `parent_material_30m_CONUS_4326.tif` (already built, 307 MB) — gSSURGO-derived 10-class parent material raster as a separately citable overlay.
 
 Metadata template at `cspi-conus/zenodo/v3.0.0_metadata.json` is ready to fire via the `zenodo-deposit` skill.
 
